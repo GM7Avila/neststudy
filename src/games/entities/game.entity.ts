@@ -4,7 +4,6 @@ export class Game{
     "tags": string[];
     "age": number;
     "description": string;
-
     //logo: ImageData;
     //mini: ImageData;
 }

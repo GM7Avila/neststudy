@@ -12,7 +12,7 @@ export class GamesService {
             title: "Batman",
             id: 112233,
             tags: ['adventure', 'action', 'investigation'],
-            age: 17, //corrigir
+            age: 17, //corrigir de acordo com o index do ID do <li>
             description: 'Batman description here',
         },
 
@@ -39,9 +39,7 @@ export class GamesService {
     }
 
     findOne(id:string){
-        const game = this.games.find((game: Game) => { //game -> cada elemento do array games
-            game.id === Number(id) //return -> força ser exatamente igual ao id (número) do obj
-        })
+       return this.games.find((game) => game.id === Number(id));
     }
 
     create(createGameDto: any){ //data transfer object

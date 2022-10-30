@@ -17,7 +17,7 @@ export class GamesController {
 
     // rota gameID (dinâmica)
     @Get(':id')
-    FindOne(@Param('id') id: string){
+    findOne(@Param('id') id: string){
         return this.gamesService.findOne(id);
     }
 
