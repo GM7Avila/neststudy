@@ -8,11 +8,12 @@ export class GamesService {
 
     private games: Game[] = [
 
+        //
         {
             title: "Batman",
             id: 112233,
             tags: ['adventure', 'action', 'investigation'],
-            age: 17, //corrigir de acordo com o index do ID do <li>
+            age: '17', //corrigir de acordo com o index do ID do <li>
             description: 'Batman description here',
         },
 
@@ -20,7 +21,7 @@ export class GamesService {
             title: "Minecraft",
             id: 113322,
             tags: ['adventure', 'chill', 'open-world'],
-            age: 0, //corrigir
+            age: 'L', //corrigir
             description: 'Minecraft description here',
         },
 
@@ -28,7 +29,7 @@ export class GamesService {
             title: "Red Dead Redeption",
             id: 332211,
             tags: ['adventure', 'action', 'old-west'],
-            age: 18, //corrigir
+            age: '18', //corrigir
             description: 'Red Dead Redpetion description here',
         },
 
@@ -39,11 +40,20 @@ export class GamesService {
     }
 
     findOne(id:string){
-       return this.games.find((game) => game.id === Number(id));
+       const game = this.games.find((game) => game.id === Number(id));
+
+       if(!game) {
+            throw new HttpException(`Game ID ${id} not found`,
+             HttpStatus.NOT_FOUND
+            );
+        }
+
+        return game;
     }
 
     create(createGameDto: any){ //data transfer object
         this.games.push(createGameDto);
+        return createGameDto;
     } //front-end envia as informações através do objeto de dados para o back-end
     
 

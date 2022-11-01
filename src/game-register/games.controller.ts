@@ -1,4 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
+import { GameregDto } from './dto/gamereg.dto';
+import { GameupdateDto } from './dto/gameupdate.dto';
 import { GamesService } from './games.service';
 
 
@@ -22,13 +24,13 @@ export class GamesController {
     }
 
     @Post()
-    create(@Body() body) {
-        return this.gamesService.create(body);
+    create(@Body() gameregDto: GameregDto) {
+        return this.gamesService.create(gameregDto);
     }
 
     @Patch(':id')
-    update(@Param('id') id: string, @Body() body){
-        return this.gamesService.update(id, body);
+    update(@Param('id') id: string, @Body() gameUpdate: GameupdateDto){
+        return this.gamesService.update(id, gameUpdate);
     }
 
     @Delete(':id')
