@@ -1,9 +1,9 @@
 export class Game{
-    "title" : string;
+    title : string;
     id : number;
-    "tags": string[];
-    "age": string;
-    "description": string;
-    //logo: ImageData; ??
-    //mini: ImageData; ??
+    tags: string[];
+    age: string;
+    description: string;
+    logo: ImageData; 
+    mini: ImageData; 
 }
